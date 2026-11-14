@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bfsnkewo05utr"]
 
 [ext_resource type="Script" uid="uid://je1cg12drrfw" path="res://scenes/player/player.gd" id="1_wr5hl"]
-[ext_resource type="Texture2D" uid="uid://bkalop6mnm1ak" path="res://assets/sprites/playersprite.png" id="2_gfjak"]
+[ext_resource type="Texture2D" uid="uid://brpkonu2q3dbu" path="res://assets/sprites/playersprite-removebg-preview (1).png" id="2_gfjak"]
 
 [sub_resource type="Gradient" id="Gradient_gfjak"]
 
