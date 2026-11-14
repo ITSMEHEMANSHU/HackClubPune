@@ -1,1 +1,37 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bfsnkewo05utr"]
+
+[ext_resource type="Script" uid="uid://je1cg12drrfw" path="res://scenes/player/player.gd" id="1_wr5hl"]
+[ext_resource type="Texture2D" uid="uid://di5nxmcbdm16v" path="res://icon.svg" id="2_gfjak"]
+
+[sub_resource type="Gradient" id="Gradient_gfjak"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p8chh"]
+gradient = SubResource("Gradient_gfjak")
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4kuee"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:current_health")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p8chh"]
+
+[node name="Player" type="CharacterBody2D" unique_id=693825874]
+script = ExtResource("1_wr5hl")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2043484175]
+energy = 1.5
+texture = SubResource("GradientTexture2D_p8chh")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=838349444]
+replication_config = SubResource("SceneReplicationConfig_4kuee")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1985017748]
+texture = ExtResource("2_gfjak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=111689533]
+shape = SubResource("CapsuleShape2D_p8chh")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2024988793]

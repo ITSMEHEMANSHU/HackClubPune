@@ -1,1 +1,17 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dufghs0iym31g"]
+
+[ext_resource type="Script" uid="uid://c7k62nr6r3ahl" path="res://scenes/enemies/hunter.gd" id="1_x6syt"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_e056i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8chh"]
+
+[node name="Hunter" type="CharacterBody2D" unique_id=1505875426]
+modulate = Color(0.6720797, 0, 0.011476682, 1)
+script = ExtResource("1_x6syt")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=598354561]
+replication_config = SubResource("SceneReplicationConfig_e056i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=723550254]
+shape = SubResource("RectangleShape2D_p8chh")

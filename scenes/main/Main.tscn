@@ -1,1 +1,32 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://c7hjh4xmvsaq5"]
+
+[ext_resource type="Script" uid="uid://flqu0pfv268u" path="res://scripts/main.gd" id="1_u1xfj"]
+
+[node name="Main" type="Control" unique_id=1611423002]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u1xfj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1715322428]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=473989424]
+layout_mode = 2
+text = "Host Game"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=477881643]
+layout_mode = 2
+text = "Join Game
+"

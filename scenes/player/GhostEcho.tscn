@@ -1,1 +1,16 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bxhr7jaud527g"]
+
+[ext_resource type="Script" uid="uid://mcvyt7t0fg2u" path="res://scenes/player/ghost_echo.gd" id="1_0mw0e"]
+[ext_resource type="Texture2D" uid="uid://di5nxmcbdm16v" path="res://icon.svg" id="2_b40p0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rnb4v"]
+
+[node name="GhostEcho" type="Area2D" unique_id=363716835]
+script = ExtResource("1_0mw0e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1564923562]
+shape = SubResource("CircleShape2D_rnb4v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1886907641]
+modulate = Color(1, 1, 1, 0.5019608)
+texture = ExtResource("2_b40p0")
