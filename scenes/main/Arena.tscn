@@ -1,17 +1,18 @@
 [gd_scene format=3 uid="uid://bhwnlf81ih2w6"]
 
-[ext_resource type="Texture2D" uid="uid://qnu1osdg2scm" path="res://export/index.icon.png" id="1_7pdeq"]
+[ext_resource type="Texture2D" uid="uid://rjew64wgk0vy" path="res://assets/sprites/Pixel Art Purple Cobblestone Tileset.png" id="1_7pdeq"]
 
 [node name="Arena" type="Node2D" unique_id=1530350094]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1295036301]
+z_index = -1
+offset_right = 3000.0
+offset_bottom = 3000.0
+texture = ExtResource("1_7pdeq")
+stretch_mode = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1961576168]
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=108210842]
 _spawnable_scenes = PackedStringArray("uid://bfsnkewo05utr", "uid://bxhr7jaud527g", "uid://dufghs0iym31g")
 spawn_path = NodePath("..")
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1295036301]
-offset_right = 3000.0
-offset_bottom = 3000.0
-texture = ExtResource("1_7pdeq")
-stretch_mode = 1

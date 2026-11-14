@@ -18,9 +18,18 @@ func _physics_process(delta):
 		return
 		
 	# 1. Movement
-	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_dir * current_speed
 	move_and_slide()
+	
+	# --- ADD THIS ANIMATION LOGIC ---
+	if input_dir != Vector2.ZERO:
+		$AnimationPlayer.play("run")
+		# Flip the sprite to face left if moving left
+		if input_dir.x != 0:
+			$Sprite2D.flip_h = input_dir.x < 0
+	else:
+		$AnimationPlayer.stop() # Or play an "idle" animation if you make one
 	
 	# 2. Record path every 0.1 seconds for the Ghost Echo
 	record_timer += delta

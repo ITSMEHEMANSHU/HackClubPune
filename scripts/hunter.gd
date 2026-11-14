@@ -1,17 +1,17 @@
 extends CharacterBody2D
 
-const SPEED = 120.0
+const SPEED = 110.0
 var target_player: Node2D = null
 
 func _ready() -> void:
-	# Add the monster to a group so the GameManager can easily find it
 	add_to_group("enemies")
 
 func _physics_process(_delta: float) -> void:
-	# Only the Host (Server) is allowed to control the monster's AI
+	# 1. AI only runs on the server
 	if not multiplayer.is_server():
 		return
 		
+	# 2. Find and chase the player
 	_find_lowest_hp_target()
 	
 	if target_player != null and is_instance_valid(target_player):
@@ -21,15 +21,24 @@ func _physics_process(_delta: float) -> void:
 		velocity = Vector2.ZERO
 		
 	move_and_slide()
+	
+	# 3. Combat: Damage and Bounce Back
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider and collider.is_in_group("players"):
+			collider.take_damage.rpc(25) # Hurt the player
+			# Bounce the monster backward
+			var bounce_direction = -global_position.direction_to(collider.global_position)
+			global_position += bounce_direction * 150 
 
-# AI Logic: Scan all players and target the weakest one
 func _find_lowest_hp_target() -> void:
 	var players = get_tree().get_nodes_in_group("players")
 	var lowest_hp = 9999
 	var weakest_player = null
 	
 	for p in players:
-		# Assuming your player script has a 'current_health' variable
 		if p.current_health > 0 and p.current_health < lowest_hp:
 			lowest_hp = p.current_health
 			weakest_player = p
